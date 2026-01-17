@@ -1,2 +1,17 @@
+app = "busify-backend"
+primary_region = 'gru'
+
+[build]
+  [build.args]
+    GO_VERSION = '1.23.0'
+
+[env]
+  PORT = '8080'
+
 [http_service]
-internal_port = 8080
+  internal_port = 8080
+
+[[vm]]
+  memory = '1gb'
+  cpus = 1
+  memory_mb = 1024
