@@ -13,8 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Fly.io
-        uses: superfly/flyctl-actions/setup-flyctl@v1
+      - name: Install Flyctl
+        run: |
+          curl -L https://fly.io/install.sh | sh
+          echo "$HOME/.fly/bin" >> $GITHUB_PATH
 
       - name: Deploy app
         run: fly deploy --remote-only
